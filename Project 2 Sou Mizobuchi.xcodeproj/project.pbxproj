@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		697BC7D321719EB3009097D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697BC7D221719EB3009097D3 /* AppDelegate.swift */; };
-		697BC7D521719EB3009097D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697BC7D421719EB3009097D3 /* ViewController.swift */; };
 		697BC7D821719EB3009097D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 697BC7D621719EB3009097D3 /* Main.storyboard */; };
 		697BC7DA21719EB5009097D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 697BC7D921719EB5009097D3 /* Assets.xcassets */; };
 		697BC7DD21719EB5009097D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 697BC7DB21719EB5009097D3 /* LaunchScreen.storyboard */; };
+		697BC7E921719FCA009097D3 /* TempleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697BC7E821719FCA009097D3 /* TempleListViewController.swift */; };
+		697BC7EB2171A2A0009097D3 /* TempleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697BC7EA2171A2A0009097D3 /* TempleCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		697BC7CF21719EB3009097D3 /* Project 2 Sou Mizobuchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project 2 Sou Mizobuchi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		697BC7D221719EB3009097D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		697BC7D421719EB3009097D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		697BC7D721719EB3009097D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		697BC7D921719EB5009097D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		697BC7DC21719EB5009097D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		697BC7DE21719EB5009097D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		697BC7E821719FCA009097D3 /* TempleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleListViewController.swift; sourceTree = "<group>"; };
+		697BC7EA2171A2A0009097D3 /* TempleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,39 @@
 		697BC7D121719EB3009097D3 /* Project 2 Sou Mizobuchi */ = {
 			isa = PBXGroup;
 			children = (
+				697BC7E721719F55009097D3 /* Controller */,
+				697BC7E621719F4D009097D3 /* Model */,
+				697BC7E421719F11009097D3 /* View */,
 				697BC7D221719EB3009097D3 /* AppDelegate.swift */,
-				697BC7D421719EB3009097D3 /* ViewController.swift */,
-				697BC7D621719EB3009097D3 /* Main.storyboard */,
 				697BC7D921719EB5009097D3 /* Assets.xcassets */,
 				697BC7DB21719EB5009097D3 /* LaunchScreen.storyboard */,
 				697BC7DE21719EB5009097D3 /* Info.plist */,
 			);
 			path = "Project 2 Sou Mizobuchi";
+			sourceTree = "<group>";
+		};
+		697BC7E421719F11009097D3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				697BC7D621719EB3009097D3 /* Main.storyboard */,
+				697BC7EA2171A2A0009097D3 /* TempleCellView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		697BC7E621719F4D009097D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		697BC7E721719F55009097D3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				697BC7E821719FCA009097D3 /* TempleListViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +162,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				697BC7D521719EB3009097D3 /* ViewController.swift in Sources */,
 				697BC7D321719EB3009097D3 /* AppDelegate.swift in Sources */,
+				697BC7E921719FCA009097D3 /* TempleListViewController.swift in Sources */,
+				697BC7EB2171A2A0009097D3 /* TempleCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +319,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "IS543.Project-2-Sou-Mizobuchi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,7 +336,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "IS543.Project-2-Sou-Mizobuchi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

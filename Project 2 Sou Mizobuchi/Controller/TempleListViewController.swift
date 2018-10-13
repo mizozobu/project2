@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TempleListViewController.swift
 //  Project 2 Sou Mizobuchi
 //
 //  Created by user144546 on 10/12/18.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class TempleListViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-
+    
+    
 }
-
