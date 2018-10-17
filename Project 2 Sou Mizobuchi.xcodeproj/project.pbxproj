@@ -10,7 +10,6 @@
 		692EE6872171A6360011300F /* Temple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692EE6862171A6360011300F /* Temple.swift */; };
 		692EE6892171A6480011300F /* TempleDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692EE6882171A6480011300F /* TempleDeck.swift */; };
 		692EE68B2171A8DB0011300F /* TempleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692EE68A2171A8DB0011300F /* TempleCardView.swift */; };
-		692EE68D2171AA7D0011300F /* TempleNameCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692EE68C2171AA7D0011300F /* TempleNameCellView.swift */; };
 		697BC7D321719EB3009097D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697BC7D221719EB3009097D3 /* AppDelegate.swift */; };
 		697BC7D821719EB3009097D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 697BC7D621719EB3009097D3 /* Main.storyboard */; };
 		697BC7DA21719EB5009097D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 697BC7D921719EB5009097D3 /* Assets.xcassets */; };
@@ -22,7 +21,6 @@
 		692EE6862171A6360011300F /* Temple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temple.swift; sourceTree = "<group>"; };
 		692EE6882171A6480011300F /* TempleDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleDeck.swift; sourceTree = "<group>"; };
 		692EE68A2171A8DB0011300F /* TempleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleCardView.swift; sourceTree = "<group>"; };
-		692EE68C2171AA7D0011300F /* TempleNameCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempleNameCellView.swift; sourceTree = "<group>"; };
 		697BC7CF21719EB3009097D3 /* Project 2 Sou Mizobuchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project 2 Sou Mizobuchi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		697BC7D221719EB3009097D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		697BC7D721719EB3009097D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 			children = (
 				697BC7D621719EB3009097D3 /* Main.storyboard */,
 				692EE68A2171A8DB0011300F /* TempleCardView.swift */,
-				692EE68C2171AA7D0011300F /* TempleNameCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,7 +172,6 @@
 				692EE6892171A6480011300F /* TempleDeck.swift in Sources */,
 				697BC7D321719EB3009097D3 /* AppDelegate.swift in Sources */,
 				697BC7E921719FCA009097D3 /* TempleListViewController.swift in Sources */,
-				692EE68D2171AA7D0011300F /* TempleNameCellView.swift in Sources */,
 				692EE6872171A6360011300F /* Temple.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
