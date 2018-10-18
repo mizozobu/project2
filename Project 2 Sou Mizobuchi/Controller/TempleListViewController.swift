@@ -16,21 +16,29 @@ class TempleListViewController: UIViewController {
         static let templeCardIdentifier = "TempleCardIdentifier"
     }
     
+    // Mark - Properties
+    var templeDeck = TempleDeck()
+    var matchedTemples: [Temple] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    
 }
 
 extension TempleListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return TempleDeck.temples.count
+        return templeDeck.temples.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: storyBoard.templeCardIdentifier, for: indexPath)
-        if let templeCard = cell as? TempleCardView {
-            // something
+        let temple = templeDeck.temples[indexPath.row]
+        
+        if let templeCard = cell as? TempleCardCell {
+            templeCard.templeCardView.temple = temple
         }
         
         return cell
@@ -39,12 +47,13 @@ extension TempleListViewController: UICollectionViewDataSource {
 
 extension TempleListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TempleDeck.temples.count
+        return templeDeck.temples.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: storyBoard.templeTableRowIdentifier, for: indexPath)
-        cell.textLabel?.text = TempleDeck.temples[indexPath.row].name
+        
+        cell.textLabel?.text = templeDeck.temples[indexPath.row].name
         
         return cell
     }

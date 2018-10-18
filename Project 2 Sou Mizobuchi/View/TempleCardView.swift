@@ -16,6 +16,7 @@ class TempleCardView : UIView {
     }
     
     // Mark - Properties
+    var temple = Temple(filename: "adsf", name: "adsf")
     @IBInspectable var isMatched = false
     
     // Mark - Computed Properties
@@ -50,7 +51,7 @@ class TempleCardView : UIView {
         UIColor.red.setFill()
         UIRectFill(bounds)
         
-        guard let templeImage = UIImage(named: "bismarck-temple-lds-408056-mobile.jpg") else {
+        guard let templeImage = UIImage(named: temple.filename) else {
             return
         }
         

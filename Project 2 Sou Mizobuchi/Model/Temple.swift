@@ -12,6 +12,7 @@ class Temple {
     // Mark - Properties
     var name: String
     var filename: String
+    var matched: Bool = false
     
     // Mark - Init
     init(filename: String, name: String) {
