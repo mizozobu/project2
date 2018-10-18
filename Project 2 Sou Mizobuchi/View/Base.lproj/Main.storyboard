@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1i7-Kd-e4g">
-                                <rect key="frame" x="8" y="0.0" width="401" height="375"/>
+                                <rect key="frame" x="8" y="0.0" width="409" height="343"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tUz-yn-lVp">
                                     <size key="itemSize" width="120" height="80"/>
@@ -51,7 +51,7 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bge-JA-P5u">
-                                <rect key="frame" x="417" y="0.0" width="250" height="375"/>
+                                <rect key="frame" x="417" y="0.0" width="250" height="343"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="HUc-xp-Dul"/>
@@ -72,19 +72,36 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="pnd-yJ-2qY"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZ6-49-epG">
+                                <rect key="frame" x="0.0" y="343" width="667" height="32"/>
+                                <items>
+                                    <barButtonItem title="Study" id="gbu-Rs-mPI">
+                                        <connections>
+                                            <action selector="toggleMode:" destination="BYZ-38-t0r" id="bS9-Vk-uHM"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="NZ6-49-epG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="DNV-lo-kjf"/>
                             <constraint firstItem="1i7-Kd-e4g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="IhA-x3-Crd"/>
-                            <constraint firstItem="Bge-JA-P5u" firstAttribute="leading" secondItem="1i7-Kd-e4g" secondAttribute="trailing" constant="8" id="QRO-tg-wOZ"/>
                             <constraint firstItem="Bge-JA-P5u" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="T9U-gO-nnB"/>
                             <constraint firstItem="1i7-Kd-e4g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="big-Bg-3G5"/>
+                            <constraint firstItem="1i7-Kd-e4g" firstAttribute="baseline" secondItem="NZ6-49-epG" secondAttribute="firstBaseline" id="fpJ-0B-Lg3"/>
+                            <constraint firstItem="Bge-JA-P5u" firstAttribute="baseline" secondItem="NZ6-49-epG" secondAttribute="firstBaseline" id="iQq-oQ-0VW"/>
+                            <constraint firstItem="NZ6-49-epG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nc2-Kn-ZQS"/>
                             <constraint firstItem="Bge-JA-P5u" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="q2B-tW-YNX"/>
-                            <constraint firstItem="Bge-JA-P5u" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="vNn-CN-mUb"/>
-                            <constraint firstItem="1i7-Kd-e4g" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zeR-BX-kHA"/>
+                            <constraint firstAttribute="trailing" secondItem="NZ6-49-epG" secondAttribute="trailing" id="syk-0R-Y93"/>
+                            <constraint firstItem="Bge-JA-P5u" firstAttribute="leading" secondItem="1i7-Kd-e4g" secondAttribute="trailing" id="zp5-9G-aXB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="1i7-Kd-e4g" id="FBC-6G-kqg"/>
+                        <outlet property="collectionViewRightConstraint" destination="zp5-9G-aXB" id="bug-Js-3zR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

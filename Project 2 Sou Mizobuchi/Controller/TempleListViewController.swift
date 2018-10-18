@@ -16,6 +16,23 @@ class TempleListViewController: UIViewController {
         static let templeCardIdentifier = "TempleCardIdentifier"
     }
     
+    // Mark - Outlets
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionViewRightConstraint: NSLayoutConstraint!
+    @IBAction func toggleMode(_ sender: Any) {
+        collectionView.layoutIfNeeded()
+        if collectionViewRightConstraint.constant > 0 {
+            collectionViewRightConstraint.constant = 0
+        } else {
+            collectionViewRightConstraint.constant = collectionView.bounds.height / 2
+        }
+        
+        UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseInOut], animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
     // Mark - Properties
     var templeDeck = TempleDeck()
     var matchedTemples: [Temple] = []
@@ -24,8 +41,6 @@ class TempleListViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
-    
 }
 
 extension TempleListViewController: UICollectionViewDataSource {
