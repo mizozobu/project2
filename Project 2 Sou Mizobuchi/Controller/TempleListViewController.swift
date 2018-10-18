@@ -17,15 +17,16 @@ class TempleListViewController: UIViewController {
     }
     
     // Mark - Outlets
-    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var collectionViewRightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableViewWidth: NSLayoutConstraint!
+    
     @IBAction func toggleMode(_ sender: Any) {
         collectionView.layoutIfNeeded()
-        if collectionViewRightConstraint.constant > 0 {
-            collectionViewRightConstraint.constant = 0
+        if tableViewWidth.constant > 0 {
+            tableViewWidth.constant = 0
         } else {
-            collectionViewRightConstraint.constant = collectionView.bounds.height / 2
+            tableViewWidth.constant = 250
         }
         
         UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseInOut], animations: {

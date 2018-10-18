@@ -100,7 +100,8 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="1i7-Kd-e4g" id="FBC-6G-kqg"/>
-                        <outlet property="collectionViewRightConstraint" destination="zp5-9G-aXB" id="bug-Js-3zR"/>
+                        <outlet property="tableView" destination="Bge-JA-P5u" id="htQ-1Z-oAV"/>
+                        <outlet property="tableViewWidth" destination="HUc-xp-Dul" id="oyk-TD-bKD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
