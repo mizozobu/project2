@@ -18,28 +18,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1i7-Kd-e4g">
-                                <rect key="frame" x="8" y="0.0" width="409" height="343"/>
+                                <rect key="frame" x="8" y="8" width="409" height="343"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tUz-yn-lVp">
-                                    <size key="itemSize" width="120" height="80"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GpO-ew-FLd">
+                                    <size key="itemSize" width="120" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TempleCardIdentifier" id="h8v-7A-QRr" customClass="TempleCardCell" customModule="Project_2_Sou_Mizobuchi" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ax-VD-5CV" customClass="TempleCardView" customModule="Project_2_Sou_Mizobuchi" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ax-VD-5CV" customClass="TempleCardView" customModule="Project_2_Sou_Mizobuchi" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
                                                 </view>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="0Ax-VD-5CV" secondAttribute="bottom" id="ETg-zN-A6J"/>
+                                            <constraint firstAttribute="trailing" secondItem="0Ax-VD-5CV" secondAttribute="trailing" id="O7K-JC-f2t"/>
+                                            <constraint firstItem="0Ax-VD-5CV" firstAttribute="top" secondItem="h8v-7A-QRr" secondAttribute="top" id="ext-SG-V0G"/>
+                                            <constraint firstItem="0Ax-VD-5CV" firstAttribute="leading" secondItem="h8v-7A-QRr" secondAttribute="leading" id="zfN-D9-MCz"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="templeCardView" destination="0Ax-VD-5CV" id="lqP-2m-xp3"/>
                                         </connections>
@@ -88,8 +93,8 @@
                             <constraint firstItem="NZ6-49-epG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="DNV-lo-kjf"/>
                             <constraint firstItem="1i7-Kd-e4g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="IhA-x3-Crd"/>
                             <constraint firstItem="Bge-JA-P5u" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="T9U-gO-nnB"/>
-                            <constraint firstItem="1i7-Kd-e4g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="big-Bg-3G5"/>
-                            <constraint firstItem="1i7-Kd-e4g" firstAttribute="baseline" secondItem="NZ6-49-epG" secondAttribute="firstBaseline" id="fpJ-0B-Lg3"/>
+                            <constraint firstItem="1i7-Kd-e4g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="big-Bg-3G5"/>
+                            <constraint firstItem="1i7-Kd-e4g" firstAttribute="baseline" secondItem="NZ6-49-epG" secondAttribute="firstBaseline" constant="8" id="fpJ-0B-Lg3"/>
                             <constraint firstItem="Bge-JA-P5u" firstAttribute="baseline" secondItem="NZ6-49-epG" secondAttribute="firstBaseline" id="iQq-oQ-0VW"/>
                             <constraint firstItem="NZ6-49-epG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nc2-Kn-ZQS"/>
                             <constraint firstItem="Bge-JA-P5u" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="q2B-tW-YNX"/>

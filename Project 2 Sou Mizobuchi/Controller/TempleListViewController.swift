@@ -61,6 +61,17 @@ extension TempleListViewController: UICollectionViewDataSource {
     }
 }
 
+extension TempleListViewController: UICollectionViewDelegate ,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if let image = UIImage(named: templeDeck.temples[indexPath.row].filename) {
+            return CGSize(width: image.size.width / image.size.height * 100, height: 100)
+        }
+        else {
+            return CGSize(width: 0, height: 0)
+        }
+    }
+}
+
 extension TempleListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return templeDeck.temples.count

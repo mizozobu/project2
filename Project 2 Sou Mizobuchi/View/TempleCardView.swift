@@ -48,7 +48,7 @@ class TempleCardView : UIView {
         let rect = UIBezierPath(rect: bounds)
 
         rect.addClip()
-        UIColor.red.setFill()
+        UIColor.blue.setFill()
         UIRectFill(bounds)
         
         guard let templeImage = UIImage(named: temple.filename) else {
@@ -59,7 +59,7 @@ class TempleCardView : UIView {
         let height = bounds.height
         let templeImageRect = CGRect(
             x: 0,
-            y: (bounds.height - width) / 2,
+            y: 0,
             width: width,
             height: height
         )
