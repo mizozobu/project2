@@ -19,10 +19,7 @@ class TempleCardView : UIView {
     @IBInspectable var isMatched = false
     
     // Mark - Computed Properties
-    var borderWidth : CGFloat { return 1 }
-    var cornerRadious : CGFloat { return bounds.width * 0.05  }
-    var centerImageMargin    : CGFloat { return 0 }
-//    var cornerImageWidth     : CGFloat { return bounds.width * 0.18 }
+    var borderStrokeWidth : CGFloat { return 10 }
     
     // Mark - Initialization
     override init(frame: CGRect) {
@@ -47,9 +44,9 @@ class TempleCardView : UIView {
     
     // Mark - Draw
     override func draw(_ rect: CGRect) {
-        let roundRect = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadious)
-        
-        roundRect.addClip()
+        let rect = UIBezierPath(rect: bounds)
+
+        rect.addClip()
         UIColor.red.setFill()
         UIRectFill(bounds)
         
@@ -57,15 +54,25 @@ class TempleCardView : UIView {
             return
         }
         
-        let width = bounds.width - 2 * centerImageMargin
+        let width = bounds.width
+        let height = bounds.height
         let templeImageRect = CGRect(
-            x: centerImageMargin,
+            x: 0,
             y: (bounds.height - width) / 2,
             width: width,
-            height: width
+            height: height
         )
-        
         templeImage.draw(in: templeImageRect)
+        
+        let square = UIBezierPath()
+        UIColor.blue.setStroke()
+        square.lineWidth = borderStrokeWidth
+        square.move(to: CGPoint(x: 0, y: 0)) // top left
+        square.addLine(to: CGPoint(x: width, y: 0)) // top right
+        square.addLine(to: CGPoint(x: width, y: height)) // bottom right
+        square.addLine(to: CGPoint(x: 0, y: height)) // bottom left
+        square.close()
+        square.stroke()
     }
 
 }
