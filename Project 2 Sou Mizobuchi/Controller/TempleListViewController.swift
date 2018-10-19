@@ -22,19 +22,21 @@ class TempleListViewController: UIViewController {
     @IBOutlet weak var tableViewWidth: NSLayoutConstraint!
     @IBOutlet weak var scoreLabel: UIBarButtonItem!
     @IBOutlet weak var modeButton: UIBarButtonItem!
+    @IBOutlet weak var regreshButton: UIBarButtonItem!
+    @IBOutlet weak var socreButton: UIBarButtonItem!
     
     @IBAction func toggleMode(_ sender: Any) {
         collectionView.layoutIfNeeded()
-        let templeCardView = TempleCardView()
+        self.isStudyMode = !self.isStudyMode
+        regreshButton.isEnabled = !self.isStudyMode
+        socreButton.isEnabled = !self.isStudyMode
         
-        if tableViewWidth.constant > 0 {
+        if self.isStudyMode {
             tableViewWidth.constant = 0
-            modeButton.title = "Play"
-            templeCardView.isStudyMode = true
+            modeButton.title = "Match"
         } else {
             tableViewWidth.constant = 250
             modeButton.title = "Study"
-            templeCardView.isStudyMode = false
         }
         
         UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseInOut], animations: {
@@ -44,6 +46,7 @@ class TempleListViewController: UIViewController {
     
     @IBAction func refresh(_ sender: Any) {
         templeDeck = TempleDeck()
+        self.attemptCount = 0
         self.matchCount = 0
         updateScore()
         collectionView.reloadData()
@@ -52,8 +55,10 @@ class TempleListViewController: UIViewController {
     
     // Mark - Properties
     var templeDeck = TempleDeck()
-    var selectedTempleName = "tmeplename"
-    var selectedTempleImageName = "templeimagename"
+    var selectedTempleName = ""
+    var selectedTempleImageName = ""
+    var isStudyMode = false
+    var attemptCount = 0
     var matchCount = 0
     
     override func viewDidLoad() {
@@ -61,16 +66,31 @@ class TempleListViewController: UIViewController {
     }
     
     // Mark - Helpers
+    func showMessage(msg: String) {
+        let alert = UIAlertController(title: msg, message: nil, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func removeItem(indexPath: IndexPath) {
         self.templeDeck.temples.remove(at: indexPath.row)
         self.collectionView.deleteItems(at: [indexPath])
         self.tableView.deleteRows(at: [indexPath], with: .automatic)
         self.matchCount += 1
+        self.selectedTempleImageName = ""
+        self.selectedTempleName = ""
         updateScore()
     }
     
     func updateScore() {
-        self.scoreLabel.title = "Score: \(self.matchCount)"
+        self.scoreLabel.title = "Score: \(self.matchCount) Attempts: \(self.attemptCount)"
+    }
+    
+    func addAttempleCount() {
+        if self.selectedTempleImageName != "" && self.selectedTempleName != "" {
+            self.attemptCount += 1
+            self.updateScore()
+        }
     }
 }
 
@@ -103,9 +123,16 @@ extension TempleListViewController: UICollectionViewDelegate ,UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedTempleImageName = templeDeck.temples[indexPath.row].name
+        self.addAttempleCount()
         
-        if self.selectedTempleName == self.selectedTempleImageName {
-            removeItem(indexPath: indexPath)
+        if self.selectedTempleImageName != "" && self.selectedTempleName != "" {
+            if self.selectedTempleName == self.selectedTempleImageName {
+                removeItem(indexPath: indexPath)
+                self.showMessage(msg: "Correct")
+            }
+            else {
+                self.showMessage(msg: "Incorrect")
+            }
         }
     }
 }
@@ -127,12 +154,19 @@ extension TempleListViewController: UITableViewDataSource {
 extension TempleListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedTempleName = templeDeck.temples[indexPath.row].name
+        self.addAttempleCount()
         
-        if self.selectedTempleName == self.selectedTempleImageName {
-            tableView.deselectRow(at: indexPath, animated: true)
-            tableView.performBatchUpdates({
-                removeItem(indexPath: indexPath)
-            })
+        if self.selectedTempleImageName != "" && self.selectedTempleName != "" {
+            if self.selectedTempleName == self.selectedTempleImageName {
+                tableView.deselectRow(at: indexPath, animated: true)
+                tableView.performBatchUpdates({
+                    removeItem(indexPath: indexPath)
+                    showMessage(msg: "Correct")
+                })
+            }
+            else {
+                showMessage(msg: "Incorrect")
+            }
         }
     }
 }

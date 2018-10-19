@@ -85,7 +85,7 @@
                                             <action selector="refresh:" destination="BYZ-38-t0r" id="tdK-hi-ZSd"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Score: 0" id="SoW-l6-zgx"/>
+                                    <barButtonItem title="Score: 0 Attempts: 0" id="SoW-l6-zgx"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ct0-pg-Vas"/>
                                     <barButtonItem title="Study" id="gbu-Rs-mPI">
                                         <connections>
@@ -113,7 +113,9 @@
                     <connections>
                         <outlet property="collectionView" destination="1i7-Kd-e4g" id="FBC-6G-kqg"/>
                         <outlet property="modeButton" destination="gbu-Rs-mPI" id="keZ-Pv-Lq1"/>
+                        <outlet property="regreshButton" destination="3hJ-uv-Y07" id="NaV-Tg-RHS"/>
                         <outlet property="scoreLabel" destination="SoW-l6-zgx" id="EtR-C6-pkn"/>
+                        <outlet property="socreButton" destination="SoW-l6-zgx" id="OD3-as-d7y"/>
                         <outlet property="tableView" destination="Bge-JA-P5u" id="htQ-1Z-oAV"/>
                         <outlet property="tableViewWidth" destination="HUc-xp-Dul" id="oyk-TD-bKD"/>
                     </connections>

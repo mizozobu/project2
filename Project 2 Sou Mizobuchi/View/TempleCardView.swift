@@ -14,7 +14,6 @@ class TempleCardView : UIView {
     var temple = Temple(filename: "adsf", name: "adsf")
     @IBInspectable var isMatched = false
     var borderStrokeWidth : CGFloat { return 10 }
-    var isStudyMode = false
     
     // Mark - Initialization
     override init(frame: CGRect) {
@@ -69,12 +68,10 @@ class TempleCardView : UIView {
         square.close()
         square.stroke()
         
-        if self.isStudyMode {
-            let templeNameLabel = NSAttributedString(string: temple.name, attributes: [.foregroundColor: UIColor.white])
-            var textBounds = CGRect.zero
-            textBounds.size = templeNameLabel.size()
-            textBounds.origin = CGPoint(x: (bounds.width - textBounds.width) / 2, y: (bounds.height - textBounds.height) / 2)
-            templeNameLabel.draw(in: textBounds)
-        }
+        let templeNameLabel = NSAttributedString(string: temple.name, attributes: [.foregroundColor: UIColor.white])
+        var textBounds = CGRect.zero
+        textBounds.size = templeNameLabel.size()
+        textBounds.origin = CGPoint(x: (bounds.width - textBounds.width) / 2, y: (bounds.height - textBounds.height) / 2)
+        templeNameLabel.draw(in: textBounds)
     }
 }
