@@ -20,6 +20,7 @@ class TempleListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var scoreLabel: UIBarButtonItem!
     
     @IBAction func toggleMode(_ sender: Any) {
         collectionView.layoutIfNeeded()
@@ -38,10 +39,19 @@ class TempleListViewController: UIViewController {
         }, completion: nil)
     }
     
+    @IBAction func refresh(_ sender: Any) {
+        templeDeck = TempleDeck()
+        self.matchCount = 0
+        updateScore()
+        collectionView.reloadData()
+        tableView.reloadData()
+    }
+    
     // Mark - Properties
     var templeDeck = TempleDeck()
     var selectedTempleName = "tmeplename"
     var selectedTempleImageName = "templeimagename"
+    var matchCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +62,12 @@ class TempleListViewController: UIViewController {
         self.templeDeck.temples.remove(at: indexPath.row)
         self.collectionView.deleteItems(at: [indexPath])
         self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        self.matchCount += 1
+        updateScore()
+    }
+    
+    func updateScore() {
+        self.scoreLabel.title = "Score: \(self.matchCount)"
     }
 }
 

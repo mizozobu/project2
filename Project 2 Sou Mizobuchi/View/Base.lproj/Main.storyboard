@@ -80,6 +80,13 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZ6-49-epG">
                                 <rect key="frame" x="0.0" y="343" width="667" height="32"/>
                                 <items>
+                                    <barButtonItem title="Refresh" id="3hJ-uv-Y07">
+                                        <connections>
+                                            <action selector="refresh:" destination="BYZ-38-t0r" id="tdK-hi-ZSd"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Score: 0" id="SoW-l6-zgx"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ct0-pg-Vas"/>
                                     <barButtonItem title="Study" id="gbu-Rs-mPI">
                                         <connections>
                                             <action selector="toggleMode:" destination="BYZ-38-t0r" id="bS9-Vk-uHM"/>
@@ -105,6 +112,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="1i7-Kd-e4g" id="FBC-6G-kqg"/>
+                        <outlet property="scoreLabel" destination="SoW-l6-zgx" id="EtR-C6-pkn"/>
                         <outlet property="tableView" destination="Bge-JA-P5u" id="htQ-1Z-oAV"/>
                         <outlet property="tableViewWidth" destination="HUc-xp-Dul" id="oyk-TD-bKD"/>
                     </connections>
