@@ -23,10 +23,14 @@ class TempleListViewController: UIViewController {
     
     @IBAction func toggleMode(_ sender: Any) {
         collectionView.layoutIfNeeded()
+        let templeCardView = TempleCardView()
+        
         if tableViewWidth.constant > 0 {
             tableViewWidth.constant = 0
+            templeCardView.isStudyMode = true
         } else {
             tableViewWidth.constant = 250
+            templeCardView.isStudyMode = false
         }
         
         UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseInOut], animations: {
@@ -36,11 +40,18 @@ class TempleListViewController: UIViewController {
     
     // Mark - Properties
     var templeDeck = TempleDeck()
-    var matchedTemples: [Temple] = []
+    var selectedTempleName = "tmeplename"
+    var selectedTempleImageName = "templeimagename"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    // Mark - Helpers
+    func removeItem(indexPath: IndexPath) {
+        self.templeDeck.temples.remove(at: indexPath.row)
+        self.collectionView.deleteItems(at: [indexPath])
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }
 
@@ -70,6 +81,14 @@ extension TempleListViewController: UICollectionViewDelegate ,UICollectionViewDe
             return CGSize(width: 0, height: 0)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedTempleImageName = templeDeck.temples[indexPath.row].name
+        
+        if self.selectedTempleName == self.selectedTempleImageName {
+            removeItem(indexPath: indexPath)
+        }
+    }
 }
 
 extension TempleListViewController: UITableViewDataSource {
@@ -83,5 +102,18 @@ extension TempleListViewController: UITableViewDataSource {
         cell.textLabel?.text = templeDeck.temples[indexPath.row].name
         
         return cell
+    }
+}
+
+extension TempleListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedTempleName = templeDeck.temples[indexPath.row].name
+        
+        if self.selectedTempleName == self.selectedTempleImageName {
+            tableView.deselectRow(at: indexPath, animated: true)
+            tableView.performBatchUpdates({
+                removeItem(indexPath: indexPath)
+            })
+        }
     }
 }
