@@ -21,6 +21,7 @@ class TempleListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableViewWidth: NSLayoutConstraint!
     @IBOutlet weak var scoreLabel: UIBarButtonItem!
+    @IBOutlet weak var modeButton: UIBarButtonItem!
     
     @IBAction func toggleMode(_ sender: Any) {
         collectionView.layoutIfNeeded()
@@ -28,9 +29,11 @@ class TempleListViewController: UIViewController {
         
         if tableViewWidth.constant > 0 {
             tableViewWidth.constant = 0
+            modeButton.title = "Play"
             templeCardView.isStudyMode = true
         } else {
             tableViewWidth.constant = 250
+            modeButton.title = "Study"
             templeCardView.isStudyMode = false
         }
         

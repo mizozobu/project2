@@ -112,6 +112,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="1i7-Kd-e4g" id="FBC-6G-kqg"/>
+                        <outlet property="modeButton" destination="gbu-Rs-mPI" id="keZ-Pv-Lq1"/>
                         <outlet property="scoreLabel" destination="SoW-l6-zgx" id="EtR-C6-pkn"/>
                         <outlet property="tableView" destination="Bge-JA-P5u" id="htQ-1Z-oAV"/>
                         <outlet property="tableViewWidth" destination="HUc-xp-Dul" id="oyk-TD-bKD"/>
