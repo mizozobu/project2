@@ -99,6 +99,14 @@ class TempleListViewController: UIViewController {
             }
         }
     }
+    
+    func changeBorderColorAtIndex(indexPath: IndexPath, color: UIColor) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        if let templeCardCell = cell as? TempleCardCell {
+            templeCardCell.templeCardView.borderColor = color
+            templeCardCell.templeCardView.setNeedsDisplay()
+        }
+    }
 }
 
 extension TempleListViewController: UICollectionViewDataSource {
@@ -121,6 +129,7 @@ extension TempleListViewController: UICollectionViewDataSource {
 extension TempleListViewController: UICollectionViewDelegate ,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if let image = UIImage(named: templeDeck.temples[indexPath.row].filename) {
+            // set cell width based on image size to keep image proportion
             return CGSize(width: image.size.width / image.size.height * 100, height: 100)
         }
         else {
@@ -132,13 +141,25 @@ extension TempleListViewController: UICollectionViewDelegate ,UICollectionViewDe
         self.selectedTempleImageName = templeDeck.temples[indexPath.row].name
         self.addAttempleCount()
         
-        if self.selectedTempleImageName != "" && self.selectedTempleName != "" {
-            if self.selectedTempleName == self.selectedTempleImageName {
-                removeItem(indexPath: indexPath)
-                self.showMessage(msg: "Correct")
-            }
-            else {
-                self.showMessage(msg: "Incorrect")
+        // reset border color
+        for i in 0...templeDeck.temples.count - 1 {
+            let indexPath = IndexPath(row: i, section: 0)
+            changeBorderColorAtIndex(indexPath: indexPath, color: UIColor.blue)
+        }
+        
+        if !self.isStudyMode {
+            // change border color for selected item
+            changeBorderColorAtIndex(indexPath: indexPath, color: UIColor.green)
+            
+            // show popup message
+            if self.selectedTempleImageName != "" && self.selectedTempleName != "" {
+                if self.selectedTempleName == self.selectedTempleImageName {
+                    removeItem(indexPath: indexPath)
+                    self.showMessage(msg: "Correct")
+                }
+                else {
+                    self.showMessage(msg: "Incorrect")
+                }
             }
         }
     }

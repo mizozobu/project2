@@ -14,6 +14,7 @@ class TempleCardView : UIView {
     var temple = Temple(filename: "adsf", name: "adsf")
     @IBInspectable var isStudyMode = false
     var borderStrokeWidth : CGFloat { return 10 }
+    var borderColor = UIColor.blue
     
     // Mark - Initialization
     override init(frame: CGRect) {
@@ -59,7 +60,7 @@ class TempleCardView : UIView {
         templeImage.draw(in: templeImageRect)
         
         let square = UIBezierPath()
-        UIColor.blue.setStroke()
+        borderColor.setStroke()
         square.lineWidth = borderStrokeWidth
         square.move(to: CGPoint(x: 0, y: 0)) // top left
         square.addLine(to: CGPoint(x: width, y: 0)) // top right
