@@ -46,7 +46,7 @@
                                             <constraint firstItem="0Ax-VD-5CV" firstAttribute="leading" secondItem="h8v-7A-QRr" secondAttribute="leading" id="zfN-D9-MCz"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="templeCardView" destination="0Ax-VD-5CV" id="lqP-2m-xp3"/>
+                                            <outlet property="templeCardView" destination="0Ax-VD-5CV" id="kRV-PG-Xph"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

@@ -12,7 +12,7 @@ import UIKit
 class TempleCardView : UIView {
     // Mark - Properties
     var temple = Temple(filename: "adsf", name: "adsf")
-    @IBInspectable var isMatched = false
+    @IBInspectable var isStudyMode = false
     var borderStrokeWidth : CGFloat { return 10 }
     
     // Mark - Initialization
@@ -68,10 +68,12 @@ class TempleCardView : UIView {
         square.close()
         square.stroke()
         
-        let templeNameLabel = NSAttributedString(string: temple.name, attributes: [.foregroundColor: UIColor.white])
-        var textBounds = CGRect.zero
-        textBounds.size = templeNameLabel.size()
-        textBounds.origin = CGPoint(x: (bounds.width - textBounds.width) / 2, y: (bounds.height - textBounds.height) / 2)
-        templeNameLabel.draw(in: textBounds)
+        if self.isStudyMode {
+            let templeNameLabel = NSAttributedString(string: temple.name, attributes: [.foregroundColor: UIColor.white])
+            var textBounds = CGRect.zero
+            textBounds.size = templeNameLabel.size()
+            textBounds.origin = CGPoint(x: (bounds.width - textBounds.width) / 2, y: (bounds.height - textBounds.height) / 2)
+            templeNameLabel.draw(in: textBounds)
+        }
     }
 }

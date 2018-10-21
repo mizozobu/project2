@@ -30,18 +30,15 @@ class TempleListViewController: UIViewController {
         self.isStudyMode = !self.isStudyMode
         regreshButton.isEnabled = !self.isStudyMode
         socreButton.isEnabled = !self.isStudyMode
-        
-        if self.isStudyMode {
-            tableViewWidth.constant = 0
-            modeButton.title = "Match"
-        } else {
-            tableViewWidth.constant = 250
-            modeButton.title = "Study"
-        }
+        tableViewWidth.constant = self.isStudyMode ? 0 : 250
+        modeButton.title = self.isStudyMode ? "Match" : "Study"
         
         UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseInOut], animations: {
             self.view.layoutIfNeeded()
-        }, completion: nil)
+        }, completion: {
+            _ in
+            self.toggleLabelForAll()
+        })
     }
     
     @IBAction func refresh(_ sender: Any) {
@@ -90,6 +87,16 @@ class TempleListViewController: UIViewController {
         if self.selectedTempleImageName != "" && self.selectedTempleName != "" {
             self.attemptCount += 1
             self.updateScore()
+        }
+    }
+    
+    func toggleLabelForAll() {
+        for i in 0...templeDeck.temples.count - 1 {
+            let cell = collectionView.cellForItem(at: IndexPath(row: i, section: 0))
+            if let templeCardCell = cell as? TempleCardCell {
+                templeCardCell.templeCardView.isStudyMode = self.isStudyMode
+                templeCardCell.templeCardView.setNeedsDisplay()
+            }
         }
     }
 }
